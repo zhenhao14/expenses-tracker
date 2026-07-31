@@ -65,13 +65,13 @@ python src/etl.py
 
 Since categorization is baked into `run_etl()`, this single command extracts, cleans, categorizes, and saves the fully processed file to `data/processed/all_expenses.csv` — dashboard-ready with no extra steps.
 
-### 4. Check for uncategorized transactions
+### 4. Check for uncategorised transactions
 
-Open `notebooks/EDA.ipynb`, then load `data/processed/all_expenses.csv` and call `summarize_uncategorized()` to check for any new merchant codes that fell into `'Miscellaneous'`.
+Open `notebooks/EDA.ipynb`, then load `data/processed/all_expenses.csv` and call `summarize_uncategorised()` to check for any new merchant codes that fell into `'Miscellaneous'`.
 
 ### 5. Fix any gaps, then rerun the ETL
 
-If any new codes show up with a meaningful count, open `src/categorize.py` and add the keyword to the right dictionary (`FOOD_SHOPS`, `SUBSCRIPTIONS`, `CONVENIENCE`, etc.), or to `IGNORE_LIST` if it's a genuine one-off.
+If any new codes show up with a meaningful count, open `src/categorise.py` and add the keyword to the right dictionary (`FOOD_SHOPS`, `SUBSCRIPTIONS`, `CONVENIENCE`, etc.), or to `IGNORE_LIST` if it's a genuine one-off.
 
 Then rerun the ETL script from the terminal again, since it needs to regenerate the processed file with the fix applied:
 
@@ -81,11 +81,11 @@ python src/etl.py
 
 ### 6. Recheck until clean
 
-Reload the CSV in the notebook and call `summarize_uncategorized()` again to confirm the fix worked. Repeat the fix → rerun → recheck loop until the list only shows genuine one-offs or is empty.
+Reload the CSV in the notebook and call `summarize_uncategorised()` again to confirm the fix worked. Repeat the fix → rerun → recheck loop until the list only shows genuine one-offs or is empty.
 
 ### 7. Launch the dashboard
 
-Once you're happy with the categorization, run:
+Once you're happy with the categorisation, run:
 
 ```bash
 streamlit run dashboard.py
